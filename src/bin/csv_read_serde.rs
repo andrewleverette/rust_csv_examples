@@ -12,7 +12,7 @@ struct Customer {
     address: String
 }
 
-/// Reads data from a file into a reader and deserialize each record
+/// Reads data from a file into a reader and deserializes each record
 /// 
 /// # Error
 /// 
