@@ -38,10 +38,10 @@ impl DataSet {
 
     fn sort_by_index(&mut self, index: usize) -> Result<(), Box<dyn Error>> {
         if index >= self.headers.len() {
-            return Err(Box::new(IndexError(format!(
+            Err(Box::new(IndexError(format!(
                 "Index '{}' out of bounds",
                 index
-            ))));
+            ))))
         } else {
             self.records.sort_by(|a, b| a[index].cmp(&b[index]));
             Ok(())
@@ -95,7 +95,7 @@ impl Aggregate for DataSet {
                     let record = StringRecord::from(
                         self.records[left_cursor]
                             .iter()
-                            .chain(right.records[right_cursor].iter())
+                            .chain(right.records[k].iter())
                             .collect::<Vec<&str>>(),
                     );
 
@@ -103,7 +103,10 @@ impl Aggregate for DataSet {
 
                     k += 1;
                 }
+
                 left_cursor += 1;
+                right_cursor += 1;
+                
                 continue;
             } else if self.records[left_cursor][left_index]
                 < right.records[right_cursor][right_index]
