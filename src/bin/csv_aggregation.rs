@@ -104,9 +104,7 @@ impl Aggregate for DataSet {
                     k += 1;
                 }
 
-                left_cursor += 1;
-                right_cursor += 1;
-                
+                left_cursor += 1;                
                 continue;
             } else if self.records[left_cursor][left_index]
                 < right.records[right_cursor][right_index]
