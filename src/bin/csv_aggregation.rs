@@ -51,7 +51,7 @@ impl DataSet {
         }
     }
 
-    /// Sort data records by the given index.Aggregate
+    /// Sort data records by the given index.
     ///
     /// # Errors
     ///
