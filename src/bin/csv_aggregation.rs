@@ -143,7 +143,6 @@ impl Aggregate for DataSet {
                 }
 
                 left_cursor += 1;
-                continue;
             } else if self.records[left_cursor][left_index]
                 < right.records[right_cursor][right_index]
             {
